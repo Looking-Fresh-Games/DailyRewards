@@ -1,8 +1,8 @@
 # Daily Rewards
 
 ### Setting up the UI
-Clone the `daily-rewards-template.rbxm` file from the repository and import it into Roblox Studio.
-This template contains the UI elements necessary for the daily rewards system.
+Download the [daily-rewards-template.rbxm](./daily-rewards-template.rbxm) file from the repository and import it into Roblox Studio.
+This template contains the necessary UI elements for the daily rewards system.
 
 ### Installing the wally dependency
 Add the below line to your wally.toml file
