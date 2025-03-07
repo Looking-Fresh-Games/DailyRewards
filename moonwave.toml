@@ -1,0 +1,16 @@
+[home]
+includeReadme = false
+
+title = "DailyRewards"
+
+gitSourceBranch = "main"
+changelog = true
+classOrder = []
+
+[docusaurus]
+onBrokenLinks = "throw"
+onBrokenMarkdownLinks = "warn"
+
+[footer]
+style = "dark"
+copyright = "Copyright © 2025 LFG. Built with Moonwave and Docusaurus"

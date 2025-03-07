@@ -1,0 +1,13 @@
+[package]
+name = "lfg-studio/dailyrewards"
+version = "1.0.0"
+description = "Daily rewards system"
+license = "Apache-2.0"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+
+include = ["src", "default.project.json"]
+exclude = ["src/**/*.spec.luau"]
+
+[dependencies]
+Signal = "sleitnick/signal@2.0.1" # https://sleitnick.github.io/signal/api

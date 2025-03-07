@@ -1,0 +1,25 @@
+{
+  "name": "analytics",
+  "version": "1.0.0",
+  "description": "Analytics wrapper for Roblox",
+  "main": "src/init.luau",
+  "scripts": {
+    "build:docs": "moonwave build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/looking-fresh-games/analytics.git"
+  },
+  "author": "dig1t",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/looking-fresh-games/analytics/issues"
+  },
+  "homepage": "https://github.com/looking-fresh-games/analytics#readme",
+  "dependencies": {
+    "moonwave": "^1.2.1"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
