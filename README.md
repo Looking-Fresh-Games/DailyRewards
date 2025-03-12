@@ -56,7 +56,7 @@ local DailyRewards = require(Packages.DailyRewards)
 
 local profileData = getProfileData() -- Replace with your data fetcher
 
-DailyRewards.setupUI({
+DailyRewards.initClient({
 	screenGui = game.Players.LocalPlayer.PlayerGui.DailyRewards,
 
 	-- New players should default to 0 for both values
@@ -72,9 +72,13 @@ The `rewardType` and `value` fields in the `DailyRewardData` table are used to d
 They can be set to any value you want.
 
 ```lua
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
 local DailyRewards = require(Packages.DailyRewards)
 
-local canClaim = DailyRewards.canClaim(day, playerProfile.lastClaimTime, playerProfile.claimedDays)
+local DailyRewardData = require(ReplicatedStorage.Shared.Data.DailyRewardData)
+
+DailyRewards.initServer(DailyRewardData) -- Must initialize the rewards system by passing the reward data
 
 -- "PlayerClaimRequest" is a signal that fires when a player requests
 -- to claim a reward using the Claim button in the daily rewards UI.
@@ -86,26 +90,24 @@ DailyRewards.PlayerClaimRequest:Connect(function(
 )
 	local playerData = DataService:GetData(player)
 
-	if playerData then
-		-- Check if the player can claim the reward
-		local canClaim: boolean = DailyRewards.canClaim(day, playerProfile.lastClaimTime, playerProfile.claimedDays)
+	if not playerData then
+		return
+	end
 
-		if not canClaim then
-			return
-		end
+	-- Check if the player can claim the reward
+	local canClaim: boolean = DailyRewards.canClaim(day, playerData.LastClaim, playerData.ClaimedDays)
 
-		-- Give the player the reward
-		playerProfile.claimedDays = day
-		playerProfile.lastClaimTime = claimTime
+	if not canClaim then
+		return
+	end
 
-		-- Handle awarding the reward based on the `rewardType` and `value` fields
-		if dayData.rewardType == "coins" then
-			playerProfile.coins = playerProfile.coins + dayData.value
-		elseif dayData.rewardType == "skin" then
-			playerProfile.skins[dayData.value] = true
-		elseif dayData.rewardType == "item" then
-			playerProfile.items[dayData.value] = true
-		end
+	-- Give the player the reward
+	playerData.ClaimedDays = day
+	playerData.LastClaim = claimTime
+
+	-- Handle awarding the reward based on the `rewardType` and `value` fields
+	if dayData.rewardType == "coins" then
+		playerData.Coins += dayData.value :: number
 	end
 end)
 ```
