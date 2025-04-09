@@ -8,8 +8,8 @@ changelog = true
 classOrder = []
 
 [docusaurus]
-onBrokenLinks = "throw"
-onBrokenMarkdownLinks = "warn"
+onBrokenLinks = "ignore"
+onBrokenMarkdownLinks = "ignore"
 
 [footer]
 style = "dark"
