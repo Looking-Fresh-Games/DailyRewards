@@ -7,7 +7,7 @@ This template contains the necessary UI elements for the daily rewards system.
 ### Installing the wally dependency
 Add the below line to your wally.toml file
 ```toml
-DailyRewards = "Looking-Fresh-Games/DailyRewards@1.0.0"
+DailyRewards = "lfg-studio/dailyrewards@1.0.0"
 ```
 
 What to track on the server for each player:
