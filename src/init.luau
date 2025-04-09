@@ -184,7 +184,6 @@ end
 	Shortcut for `DailyRewards.setVisibility(true)`.
 
 	@client
-	@param instant boolean? -- Whether to show the UI instantly (default: false)
 ]=]
 function DailyRewards.show()
 	DailyRewards.setVisibility(true)
@@ -196,7 +195,6 @@ end
 	Shortcut for `DailyRewards.setVisibility(false)`.
 
 	@client
-	@param instant boolean? -- Whether to hide the UI instantly (default: false)
 ]=]
 function DailyRewards.hide()
 	DailyRewards.setVisibility(false)
